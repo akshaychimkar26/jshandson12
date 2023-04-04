@@ -1,0 +1,130 @@
+<html>
+    <head>
+        <title>Closures</title>
+    </head>
+    <body>
+        <p>Q1)<pre>"    function counter(){
+            var counter = 0;
+        
+            function IncreaseCounter() {
+                return counter += 1;
+            };
+        
+            return IncreaseCounter;
+        }
+        
+        var counter = counter();
+        alert(counter());
+        alert(counter());
+        alert(counter());
+        alert(counter());"</pre></p>
+        <p>OUTPUT</p>
+        <p>Output</br>JS</br>1 2 3 4</p>
+        <p>explanation:firstly,counter function called then counter=0 then increasecounter called counter increases by 1 everytime then alert will popup message 1,2,3,4</p><hr>
+
+        <p>Q2)<pre>"let count = 0;
+            (function () {
+              if (count === 0) {
+                let count = 1;
+                console.log(count); // What is logged?
+              }
+              console.log(count); // What is logged?
+            })();"</pre></p>
+        <p>OUTPUT</p>
+        <p>Output</br>JS</br></p>
+        <p>explanation:</p><hr>
+
+        <p>Q3)<pre>"for (var i = 0; i < 3; i++) {
+            setTimeout(function log() {
+              console.log(i); // What is logged?
+            }, 1000);
+          }"</pre></p>
+        <p>OUTPUT</p>
+        <p>Output</br>3 3 3</p>
+        <p>explanation:firstly i=0 condition true then i=1...i=3 then condition stopped print.</p><hr>
+
+        <p>Q4)Write a code to calculate area of a rectangle using inner function. In this case outer function should accept parameter length and inner function should accept parameter breadth.
+        <p>JS</br><pre>
+            let area=rect(5);
+            
+            console.log(area);
+            function rect(a){
+                function recta(b){
+                    return a*b;
+                }
+                
+                return recta(4);
+            }
+            </pre></p>
+        <p>OUTPUT</p>
+        <p>Output</br>20</p><hr>
+
+        <p>Q5)Take a variable in outer function and create an inner function to increase the counter every time it is called</p>
+        <p>JS</br><pre>
+
+          function f1(){
+              let counter=0;
+              
+              function f2(){
+                   counter+=1;
+              }
+              return f2;
+          }
+          let main=f1();
+          main();
+          console.log(main);
+          </pre>
+        <p>OUTPUT</p>
+        <p>Output</br>1</p><hr>
+
+        <p>Q6)<pre>"Print Output
+
+            var a = 12;
+            (function () {
+              alert(a);
+            })();"
+            </pre></p>
+        <p>OUTPUT</p>
+        <p>Output</br>12</p>
+        <p>explanation:A function called and a=12 then window will popup 12</p><hr>
+
+        <p>Q7)<pre>"var a = 10;
+            var x = (function () {
+              var a = 12;
+              return function () {
+                alert(a);
+              };
+            })();
+            x();"</pre></p>
+        <p>OUTPUT</p>
+        <p>Output</br>JS</br>12</p>
+        <p>explanation:firstly x() function called then a=12 return 12 alert popup 12.</p><hr>
+
+        <p>Q8)<pre>"var globalVar = ""xyz"";
+
+(function outerFunc(outerArg) {
+    var outerVar = 'a';
+    
+    (function innerFunc(innerArg) {
+    var innerVar = 'b';
+    
+    console.log(
+        ""outerArg = "" + outerArg + ""\n"" +
+        ""innerArg = "" + innerArg + ""\n"" +
+        ""outerVar = "" + outerVar + ""\n"" +
+        ""innerVar = "" + innerVar + ""\n"" +
+        ""globalVar = "" + globalVar);
+    
+    })(456);
+})(123);"
+            </pre></p>
+        <p>OUTPUT</p>
+        <p>Output</br><pre>outerArg = 123
+                           innerArg = 456
+                           outerVar = b
+                           innerVar = a
+                           globalVar = xyz
+        </pre></p>
+        <p>explanation:Firstly,globalVar has xyz value then outer function pass value 123 to outerArg and inner function pass value 456 to innerArg then in outerArg function outerVar has value a and innerVar has value b then print all this.</p><hr>
+
+        
